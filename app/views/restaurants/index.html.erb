@@ -17,7 +17,16 @@
         <td><%= restaurant.name %></td>
         <td><%= restaurant.user %></td>
         <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+        <td>
+          <% if current_user == restaurant.user %>
+          <!-- hacemos esto para saber que el único que puede editar un @restaurant is the user that created it -->
+          <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+
+          <% else %>
+
+          <% end %>
+
+          </td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

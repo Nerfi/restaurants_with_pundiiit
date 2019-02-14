@@ -11,7 +11,7 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    return true #para que todo el mundo pueda ver un @reetsuarant
 
   end
 end

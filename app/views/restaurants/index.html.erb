@@ -35,4 +35,9 @@
 
 <br>
 
+<!-- UPDATING THIS LINE
 <%= link_to 'New Restaurant', new_restaurant_path %>
+-->
+<% if policy(Restaurant).create? %>
+  <%= link_to "New restaurant WITH Pundiit OKEY", new_restaurant_path %>
+<% end %>

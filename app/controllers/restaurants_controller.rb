@@ -2,7 +2,9 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    #@restaurants = Restaurant.all
+    @restaurants = policy_scope(Restaurant).order(created_at: :desc)
+
 
   end
 
@@ -50,6 +52,8 @@ class RestaurantsController < ApplicationController
     def set_restaurant
       @restaurant = Restaurant.find(params[:id])
       authorize @restaurant
+
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

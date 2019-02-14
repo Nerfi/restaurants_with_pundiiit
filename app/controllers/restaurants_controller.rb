@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
       render :new
     end
 
-    end
+  end
 
   def update
     if @restaurant.update(restaurant_params)

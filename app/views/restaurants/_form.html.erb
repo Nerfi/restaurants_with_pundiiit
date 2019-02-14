@@ -5,7 +5,10 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <!-- we remove this line because in the controller we got the user that can create a restaurant, look
+      at the restaurant controller 'create method' with current_user
     <%= f.association :user %>
+  -->
   </div>
 
   <div class="form-actions">

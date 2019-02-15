@@ -18,16 +18,18 @@
         <td><%= restaurant.user %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td>
-          <% if current_user == restaurant.user %>
+          <% if policy(restaurant).edit? %>
           <!-- hacemos esto para saber que el único que puede editar un @restaurant is the user that created it -->
           <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-
-          <% else %>
 
           <% end %>
 
           </td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%  if policy(restaurant).destroy? %> <!-- chequeamos que la sea el user que ha creado el restaurante para desplegar el link de 'destroy ' lo mismo con edit -->
+          <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </td>
       </tr>
     <% end %>
   </tbody>
@@ -38,6 +40,7 @@
 <!-- UPDATING THIS LINE
 <%= link_to 'New Restaurant', new_restaurant_path %>
 -->
+<!-- when we do not have an specific instance to call we call the class, thats why we use Restaurant -->
 <% if policy(Restaurant).create? %>
   <%= link_to "New restaurant WITH Pundiit OKEY", new_restaurant_path %>
 <% end %>

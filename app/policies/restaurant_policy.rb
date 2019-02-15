@@ -1,7 +1,7 @@
 class RestaurantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all # to let anyone see the restaurants
     end
   end
 

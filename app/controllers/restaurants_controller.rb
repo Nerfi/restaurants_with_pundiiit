@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
 
   def index
     #@restaurants = Restaurant.all
+    #index method is a bit different we have to overwritte the scope method in restaurant policy
     @restaurants = policy_scope(Restaurant).order(created_at: :desc)
 
 

@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
-    authorize @restaurant
+    authorize @restaurant #para que todo el mundo pueda crear un restaurant
 
     if @restaurant.save
       redirect_to @restaurant, notice: 'restaurant was created'

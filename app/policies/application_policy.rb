@@ -12,6 +12,9 @@ class ApplicationPolicy
 
   def show?
     false
+     #scope is not working and it does not come by default , we have to return true the show? method in
+     #restaurant policy
+     #scope.where(:id => record.id).exists?
   end
 
   def create?

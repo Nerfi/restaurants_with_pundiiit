@@ -2,6 +2,8 @@ class RestaurantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all # to let anyone see the restaurants
+      #display only restaurants of owner
+      scope.where(user: user)
     end
   end
 

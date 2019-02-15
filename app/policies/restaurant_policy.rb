@@ -27,6 +27,9 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def update?
+    #inside policy we need to remenber this two things
+    # 1. user is currrent_user
+    #2. record is the instance we passed when we authorize in this case record will be @restaurant
     record.user == user
     # we can update a restaurant if we create it, that's what this line is telling us
 
